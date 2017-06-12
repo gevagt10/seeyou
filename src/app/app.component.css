@@ -1,0 +1,11 @@
+body {
+  background: black;
+}
+h1 {
+  color: aliceblue;
+}
+.area {
+  border: 1px solid white;
+  height: 600px;
+  margin-top: 10px;
+}
