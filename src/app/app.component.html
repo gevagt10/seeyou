@@ -11,8 +11,16 @@
       <button class="btn btn-primary" (click)="getPhoto()">Get photo</button>
       <button class="btn btn-success" (click)="getLocation()">Get GPS Location</button>
       <button class="btn btn-info">Get Contacts</button>
+      <!--{{ location.latitude }}-->
       <div class="area">
-        {{ location }}
+        <div *ngIf="isLocation">
+          <agm-map [latitude]="lat" [longitude]="lng">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+        </div>
+        <div *ngIf="isImage">
+          <img width="300" src="../assets/high.jpg">
+        </div>
       </div>
     </div>
 ssssxx
