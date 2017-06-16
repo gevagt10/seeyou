@@ -15,7 +15,7 @@ export class SeeyouService {
   getLocation(): Promise<Location> {
     return this.http.get(this.seeYouUrl + 'getLocation')
       .toPromise()
-      .then(response => response.json() as Location)
+      .then(response => response.json().data as Location)
       .catch(this.handleError);
   }
 

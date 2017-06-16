@@ -5,8 +5,10 @@ const router = express.Router();
 router.get('/getLocation', function(req, res) {
   console.log("IN");
   return res.json({
-    longitude: 35.217018,
-    latitude: 31.771959
+    data: {
+      longitude: 35.217018,
+      latitude: 31.771959
+    }
   })
   // res.send('api works');
 });
