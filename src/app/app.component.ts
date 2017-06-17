@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
   isImage: boolean = false;
   location: Location = null;
   title = 'See-You application';
+  imageData: any;
+  date: any;
 
   constructor(private seeyouService: SeeyouService) {}
   ngOnInit(): void {
@@ -22,24 +24,19 @@ export class AppComponent implements OnInit {
   getPhoto(): void {
     this.isLocation = false;
     this.isImage = true;
+    this.seeyouService.getPhoto()
+      .then(value => {
+        this.imageData = 'data:image/jpg;base64,' + value.image;
+        this.date = value.date });
   }
 
   // Get Location event
   getLocation(): void {
-    this.seeyouService
-      .getLocation()
+    this.seeyouService.getLocation()
       .then(value => {
         this.isLocation = true;
         this.isImage = false;
         this.location = value;
-        // console.log(this.location);
-        // if (value.latitude !== 0) {
-        //   this.isLocation = true;
-        //   this.isImage = false;
-        //   this.lat = value.latitude;
-        //   this.lng = value.longitude;
-        //   return}
-        //   this.isLocation = false
-    })
+      })
   }
 }

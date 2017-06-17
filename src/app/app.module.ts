@@ -17,7 +17,7 @@ import {SeeyouService} from './seeyou.service';
     HttpModule,
     JsonpModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAeRwm5up-QftBq-nV_kcwq3LuM_Zn1Qs0'
+      apiKey: 'AIzaSyD65D-03o4sOsbdt7m0AkmqB1lu-qKW0p8'
     })
   ],
   providers: [SeeyouService],

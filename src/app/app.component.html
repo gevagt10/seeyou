@@ -11,15 +11,15 @@
       <button class="btn btn-primary" (click)="getPhoto()">Get photo</button>
       <button class="btn btn-success" (click)="getLocation()">Get GPS Location</button>
       <button class="btn btn-info">Get Contacts</button>
+      <p>Time: {{ date }}</p>
       <div class="area">
-        <!--{{ location.longitude }}-->
         <div *ngIf="isLocation">
           <agm-map [latitude]="location.latitude" [longitude]="location.longitude">
             <agm-marker [latitude]="location.latitude" [longitude]="location.longitude"></agm-marker>
           </agm-map>
         </div>
         <div *ngIf="isImage">
-          <img width="300" src="../assets/high.jpg">
+          <img width="100%" [src]="imageData">
         </div>
       </div>
     </div>

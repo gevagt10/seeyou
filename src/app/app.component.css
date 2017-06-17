@@ -1,5 +1,6 @@
 body {
   background: black;
+  color: aliceblue;
 }
 h1 {
   color: aliceblue;
@@ -7,9 +8,13 @@ h1 {
 .area {
   border: 1px solid white;
   height: 600px;
+  width: 1000px;
   margin-top: 10px;
   color: white;
 }
 agm-map {
   height: 600px;
+}
+p {
+  color:aliceblue;
 }

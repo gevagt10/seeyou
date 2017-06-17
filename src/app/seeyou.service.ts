@@ -18,6 +18,12 @@ export class SeeyouService {
       .then(response => response.json().data as Location)
       .catch(this.handleError);
   }
+  getPhoto(): Promise<any> {
+    return this.http.get(this.seeYouUrl + 'getPhoto')
+      .toPromise()
+      .then(response => response.json().data)
+      .catch(this.handleError);
+  }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
