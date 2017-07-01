@@ -39,6 +39,14 @@ router.get('/getPhoto', function(req, res) {
   })
 });
 
+router.get('/getFunction', function(req, res) {
+  jsonfile.readFile('../seeyou/server/config/localdb.json', 'utf8', function (err, data) {
+    //console.log(data.location.latitude);
+    return res.json({
+      action: data.action
+    })
+  });
+});
 /* GET api listing. */
 router.get('/', function(req, res) {
   console.log("dffdfdfd")
