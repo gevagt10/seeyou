@@ -1,8 +1,1 @@
-{
-  "location":
-    {
-      "longitude": 35.217018,
-      "latitude": 31.771959
-    },
-  "action": "camera"
-}
+{"location":{"longitude":-122.08400000000002,"latitude":37.421998333333335},"action":{"camera":"no","contacs":"no","location":"yes"}}

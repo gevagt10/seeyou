@@ -7,6 +7,14 @@ var moment = require('moment');
 var jsonfile = require('jsonfile')
 
 
+
+router.get('/getAction', function(req, res) {
+  jsonfile.readFile('../seeyou/server/config/localdb.json', 'utf8', function (err, data) {
+    console.log(data.action);
+    return res.json(data.action)
+  });
+});
+
 router.get('/getLocation', function(req, res) {
   console.log("Location");
   jsonfile.readFile('../seeyou/server/config/localdb.json', 'utf8', function (err, data) {
@@ -18,6 +26,19 @@ router.get('/getLocation', function(req, res) {
       }
     })
   });
+});
+
+router.post('/setLocation', function (req, res) {
+  jsonfile.readFile('../seeyou/server/config/localdb.json', 'utf8', function (err, data) {
+    // Update location
+    data.location.longitude = req.body.longitude;
+    data.location.latitude = req.body.latitude;
+    //console.log(JSON.stringify(data));
+    fs.writeFile('../seeyou/server/config/localdb.json', JSON.stringify(data), 'utf8', function(err,data){
+      return res.status(200)
+    });
+  });
+  return res.status(200)
 });
 
 router.get('/getPhoto', function(req, res) {
@@ -47,6 +68,8 @@ router.get('/getFunction', function(req, res) {
     })
   });
 });
+
+
 /* GET api listing. */
 router.get('/', function(req, res) {
   console.log("dffdfdfd")
