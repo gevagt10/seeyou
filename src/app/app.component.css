@@ -5,6 +5,9 @@ body {
 h1 {
   color: aliceblue;
 }
+h3 {
+  text-align: center;
+}
 .area {
   border: 1px solid white;
   height: 600px;

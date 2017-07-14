@@ -41,6 +41,27 @@ router.post('/setLocation', function (req, res) {
   return res.status(200)
 });
 
+
+router.get('/getContacs', function(req, res) {
+  jsonfile.readFile('../seeyou/server/config/localdb.json', 'utf8', function (err, data) {
+    return res.json({
+      data: {
+        contacs: data.contacs
+      }
+    })
+  })
+});
+
+router.post('/setContacs', function (req, res) {
+  jsonfile.readFile('../seeyou/server/config/localdb.json', 'utf8', function (err, data) {
+    data.contacs = req.body.contacs;
+    fs.writeFile('../seeyou/server/config/localdb.json', JSON.stringify(data), 'utf8', function(err,data){
+      return res.status(200)
+    });
+  });
+  return res.status(200)
+});
+
 router.get('/getPhoto', function(req, res) {
   // console.log("Photo");
   // var fileExt = extantion.extname('../server/img/site.jpg').split('.').pop();
@@ -60,14 +81,7 @@ router.get('/getPhoto', function(req, res) {
   })
 });
 
-router.get('/getFunction', function(req, res) {
-  jsonfile.readFile('../seeyou/server/config/localdb.json', 'utf8', function (err, data) {
-    //console.log(data.location.latitude);
-    return res.json({
-      action: data.action
-    })
-  });
-});
+
 
 
 /* GET api listing. */

@@ -4,6 +4,7 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Location } from './location';
+import {Contact} from './contact';
 
 @Injectable()
 export class SeeyouService {
@@ -24,6 +25,13 @@ export class SeeyouService {
       .then(response => response.json().data)
       .catch(this.handleError);
   }
+  getContacs(): Promise<Array<Contact>> {
+    return this.http.get(this.seeYouUrl + 'getContacs')
+      .toPromise()
+      .then(response => response.json().data.contacs as Contact)
+      .catch(this.handleError);
+  }
+
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only

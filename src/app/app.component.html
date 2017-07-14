@@ -10,7 +10,7 @@
     <div class="col-xs-12">
       <button class="btn btn-primary" (click)="getPhoto()">Get photo</button>
       <button class="btn btn-success" (click)="getLocation()">Get GPS Location</button>
-      <button class="btn btn-info">Get Contacts</button>
+      <button class="btn btn-info" (click)="getContacs()">Get Contacts</button>
       <p>Time: {{ date }}</p>
       <div class="area">
         <div *ngIf="isLocation">
@@ -20,6 +20,12 @@
         </div>
         <div *ngIf="isImage">
           <img width="100%" [src]="imageData">
+        </div>
+        <div *ngIf="isContacs">
+          <h3>Contacs</h3>
+          <div *ngFor="let contact of contacs">
+            Name: {{contact.name}}, Phone: {{contact.phone}}
+          </div>
         </div>
       </div>
     </div>

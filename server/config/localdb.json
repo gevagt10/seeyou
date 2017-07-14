@@ -1,1 +1,21 @@
-{"location":{"longitude":-122.08400000000002,"latitude":37.421998333333335},"action":{"camera":"no","contacs":"no","location":"yes"}}
+{
+  "location": {
+    "longitude": -122.08400000000002,
+    "latitude": 37.421998333333335
+  },
+  "action": {
+    "camera": "no",
+    "contacs": "yes",
+    "location": "yes"
+  },
+  "contacs": [
+    {
+      "name": "Tas",
+      "phone": "05446365854"
+    },
+    {
+      "name": "Gorge",
+      "phone": "05446525854"
+    }
+  ]
+}
