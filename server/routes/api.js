@@ -5,7 +5,7 @@ var fs = require('fs');
 // Date and time
 var moment = require('moment');
 var jsonfile = require('jsonfile')
-
+iconv  = require('iconv-lite');
 
 
 router.get('/getAction', function(req, res) {
@@ -35,10 +35,13 @@ router.post('/setLocation', function (req, res) {
     data.location.latitude = req.body.latitude;
     //console.log(JSON.stringify(data));
     fs.writeFile('../seeyou/server/config/localdb.json', JSON.stringify(data), 'utf8', function(err,data){
-      return res.status(200)
+      console.log("fdsfsdfsdfs");
+      return res.end()
     });
   });
-  return res.status(200)
+  return res.json({
+    result:"failed"
+  })
 });
 
 
@@ -53,13 +56,19 @@ router.get('/getContacs', function(req, res) {
 });
 
 router.post('/setContacs', function (req, res) {
+
+  //var utf8String = iconv.decode(new Buffer(req.body), "ISO-8859-1");
+  //console.log(utf8String);
+  console.log(req.body);
   jsonfile.readFile('../seeyou/server/config/localdb.json', 'utf8', function (err, data) {
     data.contacs = req.body.contacs;
-    fs.writeFile('../seeyou/server/config/localdb.json', JSON.stringify(data), 'utf8', function(err,data){
-      return res.status(200)
+    fs.writeFile('../seeyou/server/config/localdb.json', JSON.stringify(data),"utf8", function(err,data){
+      return res.end();
     });
   });
-  return res.status(200)
+  return res.json({
+    result:"failed"
+  })
 });
 
 router.get('/getPhoto', function(req, res) {

@@ -23,13 +23,14 @@
         </div>
         <div *ngIf="isContacs">
           <h3>Contacs</h3>
-          <div *ngFor="let contact of contacs">
-            Name: {{contact.name}}, Phone: {{contact.phone}}
+          <div class="contacts_view">
+            <div class="contact_element" *ngFor="let contact of contacs">
+              Name: {{contact.name}}, Phone: {{contact.phone}}
+            </div>
           </div>
         </div>
       </div>
     </div>
-ssssxx
   </div>
 </div>
 

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SeeyouService} from './seeyou.service';
 import { Location } from './location';
 import {Contact} from './contact';
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit {
   title = 'See-You application';
   imageData: any;
   date: any;
+  contacsView: String = '';
 
   constructor(private seeyouService: SeeyouService) {}
   ngOnInit(): void {
@@ -52,7 +54,6 @@ export class AppComponent implements OnInit {
         this.isLocation = false;
         this.isImage = false;
         this.contacs = value;
-        console.log(this.contacs);
       })
   }
 }

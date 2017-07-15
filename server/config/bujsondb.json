@@ -8,5 +8,14 @@
     "contacs": "yes",
     "location": "yes"
   },
-  "contacs": []
+  "contacs": [
+    {
+      "name": "Tas",
+      "phone": "05446365854"
+    },
+    {
+      "name": "Gorge",
+      "phone": "05446525854"
+    }
+  ]
 }
