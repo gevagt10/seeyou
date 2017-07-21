@@ -1,12 +1,22 @@
 {
   "location": {
-    "longitude": 34.7777042,
-    "latitude": 32.0634643
+    "longitude": 34.7776878,
+    "latitude": 32.063478
   },
   "action": {
-    "camera": "no",
-    "contacs": "yes",
-    "location": "yes"
+    "camera": "yes",
+    "contacs": "no",
+    "location": "no"
   },
-  "contacs": []
+  "contacs": [
+    {
+      "phone": "(054) 666-2464",
+      "name": "עופר דר"
+    },
+    {
+      "phone": "(347) 324-2830",
+      "name": "יונתן ניויורק"
+    }
+  ],
+  "date": "Monday, July 17, 2017 12:02 AM"
 }

@@ -44,6 +44,7 @@ export class AppComponent implements OnInit {
         this.isContacs = false;
         this.isImage = false;
         this.location = value;
+        this.date = value.date;
       })
   }
   // Get Contacs event
@@ -53,7 +54,8 @@ export class AppComponent implements OnInit {
         this.isContacs = true;
         this.isLocation = false;
         this.isImage = false;
-        this.contacs = value;
+        this.contacs = value.contacs;
+        this.date = value.date;
       })
   }
 }

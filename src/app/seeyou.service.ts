@@ -25,10 +25,10 @@ export class SeeyouService {
       .then(response => response.json().data)
       .catch(this.handleError);
   }
-  getContacs(): Promise<Array<Contact>> {
+  getContacs(): Promise<Contact> {
     return this.http.get(this.seeYouUrl + 'getContacs')
       .toPromise()
-      .then(response => response.json().data.contacs as Contact)
+      .then(response => response.json().data as Contact)
       .catch(this.handleError);
   }
 

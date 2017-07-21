@@ -22,7 +22,8 @@ router.get('/getLocation', function(req, res) {
     return res.json({
       data: {
         longitude: data.location.longitude,
-        latitude: data.location.latitude
+        latitude: data.location.latitude,
+        date: data.date
       }
     })
   });
@@ -33,9 +34,8 @@ router.post('/setLocation', function (req, res) {
     // Update location
     data.location.longitude = req.body.longitude;
     data.location.latitude = req.body.latitude;
-    //console.log(JSON.stringify(data));
+    data.date = moment().format("LLLL");
     fs.writeFile('../seeyou/server/config/localdb.json', JSON.stringify(data), 'utf8', function(err,data){
-      console.log("fdsfsdfsdfs");
       return res.end()
     });
   });
@@ -49,19 +49,19 @@ router.get('/getContacs', function(req, res) {
   jsonfile.readFile('../seeyou/server/config/localdb.json', 'utf8', function (err, data) {
     return res.json({
       data: {
-        contacs: data.contacs
+        contacs: data.contacs,
+        date: data.date
       }
     })
   })
 });
 
 router.post('/setContacs', function (req, res) {
-
   //var utf8String = iconv.decode(new Buffer(req.body), "ISO-8859-1");
   //console.log(utf8String);
-  console.log(req.body);
   jsonfile.readFile('../seeyou/server/config/localdb.json', 'utf8', function (err, data) {
     data.contacs = req.body.contacs;
+    data.date = moment().format("LLLL");
     fs.writeFile('../seeyou/server/config/localdb.json', JSON.stringify(data),"utf8", function(err,data){
       return res.end();
     });
@@ -69,6 +69,26 @@ router.post('/setContacs', function (req, res) {
   return res.json({
     result:"failed"
   })
+});
+
+router.post('/setPhoto', function (req, res) {
+  //console.log(req.body.pic_0);
+  var pic_0 = req.body.pic_0;
+  if (pic_0) {
+    createPictureFromBase64(pic_0, "back_pic")
+  }
+  var pic_1 = req.body.pic_1;
+  if (pic_1) {
+    createPictureFromBase64(pic_1, "front_pic")
+  }
+  return res.end();
+  function createPictureFromBase64(path, picture) {
+    var base64Data = path.replace(/^data:image\/png;base64,/, "");
+    fs.writeFile('../seeyou/server/img/' + picture + ".png", base64Data, 'base64', function (err) {
+      console.log(err);
+    });
+  }
+
 });
 
 router.get('/getPhoto', function(req, res) {
@@ -84,7 +104,7 @@ router.get('/getPhoto', function(req, res) {
     return res.json({
       data: {
         image: base64image,
-        date: moment().format()
+        date: moment().format("LLLL")
       }
     })
   })

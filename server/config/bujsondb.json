@@ -4,9 +4,9 @@
     "latitude": 32.0634643
   },
   "action": {
-    "camera": "no",
-    "contacs": "yes",
-    "location": "yes"
+    "camera": "yes",
+    "contacs": "no",
+    "location": "no"
   },
   "contacs": [
     {
